@@ -1,0 +1,931 @@
+/*!*************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./app/globals.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************/
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Define CSS variables for reuse */
+:root {
+  /* Colors */
+  --primary-green: #388e3c;
+  --primary-green-dark: #2e7d32;
+  --green-light: #c8e6c9;
+  --green-bg-light: #e7f3e7;
+  --green-bg-table: #f0f9f0;
+  --green-bg-table-hover: #e0f2e0;
+  --green-text: #2f855a;
+  --blue: #1976d2;
+  --blue-dark: #1565c0;
+  --blue-light: #bee3f8;
+  --blue-text: #2b6cb0;
+  --yellow-light: #fefcbf;
+  --yellow-text: #744210;
+  --red: #c62828;
+  --red-dark: #b71c1c;
+  --red-bg: #fef2f2;
+  --red-border: #f5c6cb;
+  --gray: #6b6b6b;
+  --gray-light: #f5f5f5;
+  --gray-medium: #bdbdbd;
+  --gray-dark: #4a4a4a;
+  --gray-darker: #2d2d2d;
+  --black: #1a1a1a;
+  --white: #fff;
+  --border: #d1d1d1;
+  --border-green: #d1e7d1;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 15px 40px rgba(0, 0, 0, 0.15);
+  --shadow-text: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-text-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 0.75rem;
+  --spacing-lg: 1rem;
+  --spacing-xl: 1.5rem;
+  --spacing-2xl: 2rem;
+  --spacing-3xl: 3rem;
+
+  /* Border Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
+
+  /* Font Sizes */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2rem;
+  --text-4xl: 2.5rem;
+}
+
+/* Base Styles
+---------------------------------------------- */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  color: var(--gray-darker);
+  background: var(--gray-light);
+  min-height: 100vh;
+}
+
+.layout-body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Common Container Styles
+---------------------------------------------- */
+.container {
+  width: 100%;
+  margin: 0 auto;
+  background: linear-gradient(135deg, var(--green-bg-light) 0%, var(--gray-light) 50%, var(--green-bg-light) 100%);
+}
+
+.container--sm {
+  max-width: 32rem;
+}
+
+.container--md {
+  max-width: 40rem;
+}
+
+.container--lg {
+  max-width: 80rem;
+}
+
+.container--padded {
+  padding: var(--spacing-3xl) var(--spacing-lg);
+}
+
+/* Common Card Styles
+---------------------------------------------- */
+.card {
+  background: var(--white);
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-green);
+  padding: var(--spacing-2xl);
+  transition: box-shadow 0.5s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-xl);
+}
+
+/* Common Heading Styles
+---------------------------------------------- */
+.heading--lg {
+  font-size: var(--text-4xl);
+  font-weight: 800;
+  color: var(--black);
+  text-shadow: var(--shadow-text);
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
+}
+
+.heading--md {
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: var(--spacing-lg);
+}
+
+.heading--sm {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--black);
+  margin: var(--spacing-lg) 0 var(--spacing-sm);
+}
+
+/* Common Error and Success Styles
+---------------------------------------------- */
+.error {
+  background: var(--red-bg);
+  border: 1px solid var(--red-border);
+  color: var(--red);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  box-shadow: var(--shadow-md);
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
+}
+
+.error--sm {
+  font-size: var(--text-xs);
+  margin-top: var(--spacing-xs);
+}
+
+.success {
+  color: var(--green-text);
+  text-align: center;
+  font-size: var(--text-sm);
+}
+
+/* Common Label Styles
+---------------------------------------------- */
+.label,
+.order-details-label,
+.track-order-details-label {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--gray-darker);
+  margin-bottom: var(--spacing-xs);
+}
+
+.order-details-label,
+.track-order-details-label {
+  display: inline-block;
+  font-weight: 600;
+  color: var(--black);
+}
+
+/* Common Status Badge Styles
+---------------------------------------------- */
+.status {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-lg);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  box-shadow: var(--shadow-sm);
+}
+
+.status--pending {
+  background: var(--yellow-light);
+  color: var(--yellow-text);
+}
+
+.status--shipped {
+  background: var(--blue-light);
+  color: var(--blue-text);
+}
+
+.status--delivered {
+  background: var(--green-bg-light);
+  color: var(--green-text);
+}
+
+/* Common Table Styles
+---------------------------------------------- */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table-header th {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-bottom: 1px solid var(--border);
+}
+
+.table-row {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s ease;
+}
+
+.table-row:hover {
+  background: rgba(200, 230, 201, 0.3);
+}
+
+.table-cell {
+  padding: var(--spacing-sm) var(--spacing-lg);
+}
+
+/* Common Form Styles
+---------------------------------------------- */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input,
+.textarea {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-md);
+  width: 100%;
+  font-size: var(--text-base);
+  transition: all 0.3s ease;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #a0a0a0;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
+}
+
+/* Common Button Styles
+---------------------------------------------- */
+.button {
+  padding: var(--spacing-md) var(--spacing-2xl);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button--primary {
+  background: linear-gradient(to right, #4caf50, var(--primary-green));
+  color: var(--white);
+  box-shadow: var(--shadow-md);
+}
+
+.button--primary:hover:not(:disabled) {
+  background: linear-gradient(to right, var(--primary-green), var(--primary-green-dark));
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transform: scale(1.05);
+}
+
+.button--primary:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(56, 142, 60, 0.3);
+}
+
+.button--primary:disabled {
+  background: var(--gray-medium);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: var(--shadow-md);
+}
+
+.button--secondary {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.button--secondary:hover:not(:disabled) {
+  background: var(--blue-dark);
+}
+
+.button--secondary:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.3);
+}
+
+.button--secondary:disabled {
+  background: var(--gray-medium);
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Navigation Styles
+---------------------------------------------- */
+.layout-nav {
+  background: var(--primary-green);
+  box-shadow: var(--shadow-sm);
+  border-bottom: 1px solid var(--primary-green-dark);
+}
+
+.layout-nav-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.layout-nav-brand {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--white);
+  transition: color 0.3s ease;
+}
+
+.layout-nav-brand:hover {
+  color: var(--green-light);
+}
+
+.layout-nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-sm);
+}
+
+.layout-nav-link {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: var(--white);
+  color: var(--primary-green);
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.layout-nav-link:hover {
+  background: var(--green-bg-light);
+  color: var(--primary-green-dark);
+}
+
+.layout-nav-link:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(56, 142, 60, 0.3);
+}
+
+/* Track Order Page Styles
+---------------------------------------------- */
+.track-order-main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.track-order-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+}
+
+.track-order-header {
+  text-align: center;
+}
+
+.track-order-header h1 {
+  font-size: var(--text-4xl);
+  font-weight: 800;
+  color: var(--black);
+  text-shadow: var(--shadow-text);
+  margin-bottom: var(--spacing-xl);
+}
+
+.track-order-header p {
+  font-size: var(--text-base);
+  color: var(--gray-dark);
+  line-height: 1.5;
+}
+
+.track-order-form {
+  max-width: 24rem;
+  margin: 0 auto;
+}
+
+.track-order-input {
+  max-width: 24rem;
+  display: block;
+  margin: 0 auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  background: var(--white);
+}
+
+.track-order-input:hover {
+  border-color: #a3d39c;
+}
+
+.track-order-input:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2), 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.track-order-details-card {
+  max-width: 24rem;
+  margin: 0 auto;
+}
+
+.track-order-details-content {
+  color: var(--gray-dark);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.track-order-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.track-order-item {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--spacing-md);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--green-bg-light);
+  transition: all 0.2s ease;
+}
+
+.track-order-item-even {
+  background: var(--green-bg-table);
+}
+
+.track-order-item-even:hover {
+  background: var(--green-bg-table-hover);
+}
+
+.track-order-item-odd {
+  background: var(--gray-light);
+}
+
+.track-order-item-odd:hover {
+  background: #e8e8e8;
+}
+
+.track-order-item-name {
+  font-weight: 500;
+  color: var(--black);
+}
+
+.track-order-item-quantity {
+  font-size: var(--text-sm);
+  color: var(--gray);
+}
+
+/* Order Details Page Styles
+---------------------------------------------- */
+.order-details-card p {
+  color: var(--gray-dark);
+  margin-bottom: var(--spacing-sm);
+}
+
+.order-details-items-list {
+  list-style: disc;
+  list-style-position: inside;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.order-details-item {
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--green-bg-light);
+  transition: all 0.2s ease;
+}
+
+.order-details-item-even {
+  background: var(--green-bg-table);
+}
+
+.order-details-item-even:hover {
+  background: var(--green-bg-table-hover);
+}
+
+.order-details-item-odd {
+  background: var(--gray-light);
+}
+
+.order-details-item-odd:hover {
+  background: #e8e8e8;
+}
+
+/* Admin Dashboard Page Styles
+---------------------------------------------- */
+.admin-dashboard-table-header {
+  background: var(--green-bg-table);
+  color: var(--green-text);
+}
+
+.admin-dashboard-table-cell {
+  color: var(--gray-darker);
+  font-weight: 500;
+}
+
+.admin-dashboard-items-container {
+  display: flex;
+  justify-content: center;
+}
+
+.admin-dashboard-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  text-align: center;
+  width: 12rem;
+}
+
+.admin-dashboard-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.admin-dashboard-item-name {
+  font-weight: 500;
+}
+
+.admin-dashboard-status-select {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-xs);
+  color: var(--gray-dark);
+  font-size: var(--text-sm);
+  transition: all 0.3s ease;
+}
+
+.admin-dashboard-status-select:focus {
+  outline: none;
+  border-color: #4caf50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.admin-dashboard-status-select:disabled {
+  background: var(--gray-light);
+}
+
+.admin-dashboard-no-orders {
+  background: var(--gray-light);
+  color: var(--gray);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+/* Admin Order Table Styles
+---------------------------------------------- */
+.admin-order-table-error {
+  margin-bottom: var(--spacing-lg);
+}
+
+.admin-order-table-status-select {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-xs);
+  transition: all 0.3s ease;
+}
+
+.admin-order-table-status-select:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
+}
+
+.admin-order-table-status-select:disabled {
+  background: var(--gray-light);
+}
+
+.admin-order-table-no-data {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  text-align: center;
+  color: var(--gray);
+}
+
+/* Inventory Table Styles
+---------------------------------------------- */
+.inventory-table-no-data {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  text-align: center;
+  color: var(--gray);
+}
+
+/* Product Card Styles
+---------------------------------------------- */
+.product-card {
+  background: var(--white);
+  border: 1px solid var(--border-green);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-md);
+  transition: box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.product-card-heading {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: var(--spacing-md);
+}
+
+.product-card-price,
+.product-card-stock {
+  color: var(--gray-dark);
+  margin-top: var(--spacing-sm);
+}
+
+.product-card-quantity-control {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.product-card-quantity-button {
+  width: 2rem;
+  height: 2rem;
+  background: var(--primary-green);
+  color: var(--white);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.product-card-quantity-button:hover:not(:disabled) {
+  background: var(--primary-green-dark);
+}
+
+.product-card-quantity-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(56, 142, 60, 0.3);
+}
+
+.product-card-quantity-button:disabled {
+  background: var(--gray-medium);
+  cursor: not-allowed;
+}
+
+.product-card-quantity-display {
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--gray-darker);
+  min-width: 2rem;
+  text-align: center;
+}
+
+/* Product Catalog Styles
+---------------------------------------------- */
+.product-catalog-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+}
+
+.product-catalog-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: var(--spacing-2xl);
+  gap: var(--spacing-2xl);
+}
+
+.product-catalog-no-products {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--gray);
+}
+
+.product-catalog-total {
+  text-align: center;
+}
+
+.product-catalog-total-text {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--black);
+}
+
+.product-catalog-order-summary {
+  background: var(--white);
+  border: 1px solid var(--border-green);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-md);
+}
+
+.product-catalog-order-summary-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.product-catalog-order-summary-item {
+  color: var(--gray-dark);
+}
+
+.product-catalog-order-summary-total {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--black);
+  margin-top: var(--spacing-lg);
+}
+
+.product-catalog-order-success {
+  margin-top: var(--spacing-lg);
+  color: var(--green-text);
+  text-align: center;
+}
+
+.product-catalog-delivery-form {
+  background: var(--white);
+  border: 1px solid var(--border-green);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-md);
+}
+
+.product-catalog-delivery-form-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.product-catalog-textarea {
+  resize: vertical;
+}
+
+.product-catalog-button-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+/* Inventory Management Page Styles
+---------------------------------------------- */
+.inventory-management-cancel-button {
+  margin-left: var(--spacing-lg);
+  color: var(--gray);
+  font-size: var(--text-sm);
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.inventory-management-cancel-button:hover {
+  color: var(--gray-darker);
+  text-decoration: underline;
+}
+
+.inventory-management-cancel-button:focus {
+  outline: none;
+  color: var(--gray-darker);
+  text-decoration: underline;
+}
+
+.inventory-management-table-header {
+  background: var(--gray-light);
+}
+
+.inventory-management-edit-button {
+  color: var(--blue);
+  margin-right: var(--spacing-lg);
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.inventory-management-edit-button:hover {
+  color: var(--blue-dark);
+  text-decoration: underline;
+}
+
+.inventory-management-edit-button:focus {
+  outline: none;
+  color: var(--blue-dark);
+  text-decoration: underline;
+}
+
+.inventory-management-delete-button {
+  color: var(--red);
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.inventory-management-delete-button:hover {
+  color: var(--red-dark);
+  text-decoration: underline;
+}
+
+.inventory-management-delete-button:focus {
+  outline: none;
+  color: var(--red-dark);
+  text-decoration: underline;
+}
+
+.inventory-management-no-products {
+  color: var(--gray);
+  font-size: var(--text-sm);
+  text-align: center;
+  padding: var(--spacing-lg);
+}
+
+/* Responsive Adjustments
+---------------------------------------------- */
+@media (max-width: 640px) {
+  .container--padded,
+  .layout-main,
+  .home-main {
+    padding: var(--spacing-2xl) var(--spacing-lg);
+  }
+
+  .heading--lg,
+  .home-heading,
+  .product-catalog-heading,
+  .admin-dashboard-heading,
+  .admin-inventory-heading,
+  .inventory-management-heading {
+    font-size: var(--text-3xl);
+  }
+
+  .card,
+  .product-catalog-delivery-form,
+  .product-catalog-order-summary {
+    padding: var(--spacing-xl);
+  }
+
+  .table-cell {
+    padding: var(--spacing-sm);
+  }
+}
+
+@media (min-width: 640px) {
+  .layout-nav-links {
+    margin-top: 0;
+  }
+
+  .product-catalog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container--padded,
+  .layout-main,
+  .home-main,
+  .admin-dashboard-container,
+  .admin-inventory-container,
+  .inventory-management-container {
+    padding: var(--spacing-3xl) var(--spacing-2xl);
+  }
+
+  .product-catalog-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

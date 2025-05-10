@@ -1,23 +1,25 @@
 /*!*************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./app/globals.css ***!
   \*************************************************************************************************************************************************************************************************************************************************************/
-/* Reset default styles */
+/* ==========================================================================
+   Reset and Base Styles
+   ========================================================================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Define CSS variables for reuse */
+/* Define CSS variables for consistency and easy theming */
 :root {
-  /* Colors */
-  --primary-green: #388e3c;
-  --primary-green-dark: #2e7d32;
+  /* Colors - Adjusted for better contrast and accessibility */
+  --primary-green: #2e7d32; /* Darker green for better contrast */
+  --primary-green-dark: #1b5e20;
   --green-light: #c8e6c9;
   --green-bg-light: #e7f3e7;
   --green-bg-table: #f0f9f0;
   --green-bg-table-hover: #e0f2e0;
-  --green-text: #2f855a;
+  --green-text: #1b5e20; /* Darker green text for better readability */
   --blue: #1976d2;
   --blue-dark: #1565c0;
   --blue-light: #bee3f8;
@@ -29,57 +31,59 @@
   --red-bg: #fef2f2;
   --red-border: #f5c6cb;
   --gray: #6b6b6b;
-  --gray-light: #f5f5f5;
+  --gray-light: #f7f7f7; /* Slightly lighter for better contrast */
   --gray-medium: #bdbdbd;
   --gray-dark: #4a4a4a;
-  --gray-darker: #2d2d2d;
+  --gray-darker: #333333; /* Slightly lighter for better readability */
   --black: #1a1a1a;
   --white: #fff;
   --border: #d1d1d1;
   --border-green: #d1e7d1;
 
-  /* Shadows */
-  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.05);
-  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 15px 40px rgba(0, 0, 0, 0.15);
-  --shadow-text: 0 2px 4px rgba(0, 0, 0, 0.1);
-  --shadow-text-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  /* Shadows - Softer shadows for a modern look */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 3px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 6px 12px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 10px 20px rgba(0, 0, 0, 0.15);
+  --shadow-text: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-text-sm: 0 1px 2px rgba(0, 0, 0, 0.08);
 
-  /* Spacing */
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 0.75rem;
-  --spacing-lg: 1rem;
-  --spacing-xl: 1.5rem;
-  --spacing-2xl: 2rem;
-  --spacing-3xl: 3rem;
+  /* Spacing - Consistent spacing scale */
+  --spacing-xs: 0.25rem; /* 4px */
+  --spacing-sm: 0.5rem; /* 8px */
+  --spacing-md: 0.75rem; /* 12px */
+  --spacing-lg: 1rem; /* 16px */
+  --spacing-xl: 1.5rem; /* 24px */
+  --spacing-2xl: 2rem; /* 32px */
+  --spacing-3xl: 3rem; /* 48px */
 
-  /* Border Radius */
-  --radius-sm: 0.5rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1rem;
+  /* Border Radius - Consistent rounding */
+  --radius-sm: 0.375rem; /* 6px */
+  --radius-md: 0.5rem; /* 8px */
+  --radius-lg: 0.75rem; /* 12px */
   --radius-full: 9999px;
 
-  /* Font Sizes */
-  --text-xs: 0.75rem;
-  --text-sm: 0.875rem;
-  --text-base: 1rem;
-  --text-lg: 1.125rem;
-  --text-xl: 1.25rem;
-  --text-2xl: 1.5rem;
-  --text-3xl: 2rem;
-  --text-4xl: 2.5rem;
+  /* Font Sizes - Adjusted for better readability */
+  --text-xs: 0.75rem; /* 12px */
+  --text-sm: 0.875rem; /* 14px */
+  --text-base: 1rem; /* 16px */
+  --text-lg: 1.125rem; /* 18px */
+  --text-xl: 1.25rem; /* 20px */
+  --text-2xl: 1.5rem; /* 24px */
+  --text-3xl: 1.875rem; /* 30px */
+  --text-4xl: 2.25rem; /* 36px */
 }
 
-/* Base Styles
----------------------------------------------- */
+/* Base styles for the body */
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.6;
+  font-size: var(--text-base);
+  line-height: 1.7;
   color: var(--gray-darker);
   background: var(--gray-light);
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .layout-body {
@@ -88,8 +92,9 @@ body {
   min-height: 100vh;
 }
 
-/* Common Container Styles
----------------------------------------------- */
+/* ==========================================================================
+   Container Styles
+   ========================================================================== */
 .container {
   width: 100%;
   margin: 0 auto;
@@ -97,11 +102,11 @@ body {
 }
 
 .container--sm {
-  max-width: 32rem;
+  max-width: 36rem; /* Increased for better form layouts */
 }
 
 .container--md {
-  max-width: 40rem;
+  max-width: 48rem;
 }
 
 .container--lg {
@@ -112,30 +117,34 @@ body {
   padding: var(--spacing-3xl) var(--spacing-lg);
 }
 
-/* Common Card Styles
----------------------------------------------- */
+/* ==========================================================================
+   Card Styles
+   ========================================================================== */
 .card {
   background: var(--white);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-md);
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-green);
-  padding: var(--spacing-2xl);
-  transition: box-shadow 0.5s ease;
+  padding: var(--spacing-xl);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
 }
 
 .card:hover {
-  box-shadow: var(--shadow-xl);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
 }
 
-/* Common Heading Styles
----------------------------------------------- */
+/* ==========================================================================
+   Heading Styles
+   ========================================================================== */
 .heading--lg {
   font-size: var(--text-4xl);
-  font-weight: 800;
+  font-weight: 700;
   color: var(--black);
-  text-shadow: var(--shadow-text);
+  text-shadow: var(--shadow-text-sm);
   margin-bottom: var(--spacing-xl);
   text-align: center;
+  line-height: 1.2;
 }
 
 .heading--md {
@@ -143,27 +152,30 @@ body {
   font-weight: 600;
   color: var(--black);
   margin-bottom: var(--spacing-lg);
+  line-height: 1.3;
 }
 
 .heading--sm {
-  font-size: var(--text-base);
+  font-size: var(--text-lg);
   font-weight: 600;
   color: var(--black);
   margin: var(--spacing-lg) 0 var(--spacing-sm);
 }
 
-/* Common Error and Success Styles
----------------------------------------------- */
+/* ==========================================================================
+   Feedback Messages (Errors and Success)
+   ========================================================================== */
 .error {
   background: var(--red-bg);
   border: 1px solid var(--red-border);
-  color: var(--red);
-  padding: var(--spacing-lg);
+  color: var(--red-dark); /* Darker red for better contrast */
+  padding: var(--spacing-md) var(--spacing-lg);
   border-radius: var(--radius-md);
   font-size: var(--text-sm);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
   margin-bottom: var(--spacing-xl);
   text-align: center;
+  line-height: 1.5;
 }
 
 .error--sm {
@@ -175,16 +187,21 @@ body {
   color: var(--green-text);
   text-align: center;
   font-size: var(--text-sm);
+  font-weight: 500;
+  padding: var(--spacing-md);
+  background: var(--green-bg-light);
+  border-radius: var(--radius-md);
 }
 
-/* Common Label Styles
----------------------------------------------- */
+/* ==========================================================================
+   Label Styles
+   ========================================================================== */
 .label,
 .order-details-label,
 .track-order-details-label {
   font-size: var(--text-sm);
   font-weight: 500;
-  color: var(--gray-darker);
+  color: var(--gray-dark);
   margin-bottom: var(--spacing-xs);
 }
 
@@ -195,36 +212,41 @@ body {
   color: var(--black);
 }
 
-/* Common Status Badge Styles
----------------------------------------------- */
+/* ==========================================================================
+   Status Badge Styles
+   ========================================================================== */
 .status {
   display: inline-block;
-  padding: var(--spacing-xs) var(--spacing-lg);
+  padding: var(--spacing-sm) var(--spacing-lg);
   border-radius: var(--radius-full);
   font-size: var(--text-sm);
   font-weight: 500;
   box-shadow: var(--shadow-sm);
+  text-transform: capitalize;
 }
 
+/* Updated status colors for better visibility and contrast */
 .status--pending {
-  background: var(--yellow-light);
-  color: var(--yellow-text);
+  background: #fef08a; /* Brighter yellow for Pending */
+  color: #713f12; /* Darker text for contrast */
 }
 
 .status--shipped {
-  background: var(--blue-light);
-  color: var(--blue-text);
+  background: #93c5fd; /* Brighter blue for Shipped */
+  color: #1e3a8a; /* Darker blue text for contrast */
 }
 
 .status--delivered {
-  background: var(--green-bg-light);
-  color: var(--green-text);
+  background: #86efac; /* Brighter green for Delivered */
+  color: #14532d; /* Darker green text for contrast */
 }
 
-/* Common Table Styles
----------------------------------------------- */
+/* ==========================================================================
+   Table Styles
+   ========================================================================== */
 .table-wrapper {
   overflow-x: auto;
+  margin-bottom: var(--spacing-xl);
 }
 
 .table {
@@ -233,11 +255,16 @@ body {
   border: 1px solid var(--border);
   border-collapse: collapse;
   text-align: left;
+  border-radius: var(--radius-md);
+  overflow: hidden;
 }
 
 .table-header th {
-  padding: var(--spacing-sm) var(--spacing-lg);
-  border-bottom: 1px solid var(--border);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-bottom: 2px solid var(--border);
+  background: var(--green-bg-light);
+  color: var(--green-text);
+  font-weight: 600;
 }
 
 .table-row {
@@ -246,19 +273,21 @@ body {
 }
 
 .table-row:hover {
-  background: rgba(200, 230, 201, 0.3);
+  background: var(--green-bg-table-hover);
 }
 
 .table-cell {
-  padding: var(--spacing-sm) var(--spacing-lg);
+  padding: var(--spacing-md) var(--spacing-lg);
+  color: var(--gray-darker);
 }
 
-/* Common Form Styles
----------------------------------------------- */
+/* ==========================================================================
+   Form Styles
+   ========================================================================== */
 .form {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xl);
+  gap: var(--spacing-lg);
 }
 
 .input-group {
@@ -267,61 +296,68 @@ body {
 }
 
 .input,
-.textarea {
+.textarea,
+select {
   border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   padding: var(--spacing-md);
   width: 100%;
   font-size: var(--text-base);
+  font-family: inherit;
   transition: all 0.3s ease;
+  background: var(--white);
+  color: var(--gray-darker);
 }
 
 .input::placeholder,
 .textarea::placeholder {
-  color: #a0a0a0;
+  color: var(--gray-medium);
 }
 
 .input:focus,
-.textarea:focus {
+.textarea:focus,
+select:focus {
   outline: none;
-  border-color: var(--blue);
-  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
 }
 
-/* Common Button Styles
----------------------------------------------- */
+/* ==========================================================================
+   Button Styles
+   ========================================================================== */
 .button {
   padding: var(--spacing-md) var(--spacing-2xl);
-  border-radius: var(--radius-sm);
-  font-size: var(--text-lg);
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
   font-weight: 600;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-align: center;
 }
 
 .button--primary {
-  background: linear-gradient(to right, #4caf50, var(--primary-green));
+  background: var(--primary-green);
   color: var(--white);
   box-shadow: var(--shadow-md);
 }
 
 .button--primary:hover:not(:disabled) {
-  background: linear-gradient(to right, var(--primary-green), var(--primary-green-dark));
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  transform: scale(1.05);
+  background: var(--primary-green-dark);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-1px);
 }
 
 .button--primary:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(56, 142, 60, 0.3);
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.3);
 }
 
 .button--primary:disabled {
   background: var(--gray-medium);
   cursor: not-allowed;
+  box-shadow: none;
   transform: none;
-  box-shadow: var(--shadow-md);
 }
 
 .button--secondary {
@@ -331,6 +367,8 @@ body {
 
 .button--secondary:hover:not(:disabled) {
   background: var(--blue-dark);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-1px);
 }
 
 .button--secondary:focus {
@@ -341,15 +379,21 @@ body {
 .button--secondary:disabled {
   background: var(--gray-medium);
   cursor: not-allowed;
+  box-shadow: none;
   transform: none;
 }
 
-/* Navigation Styles
----------------------------------------------- */
+/* ==========================================================================
+   Navigation Styles
+   ========================================================================== */
 .layout-nav {
   background: var(--primary-green);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
   border-bottom: 1px solid var(--primary-green-dark);
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .layout-nav-container {
@@ -366,6 +410,7 @@ body {
   font-size: var(--text-2xl);
   font-weight: 700;
   color: var(--white);
+  text-decoration: none;
   transition: color 0.3s ease;
 }
 
@@ -384,7 +429,7 @@ body {
   padding: var(--spacing-sm) var(--spacing-lg);
   background: var(--white);
   color: var(--primary-green);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   font-weight: 500;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -392,28 +437,31 @@ body {
 }
 
 .layout-nav-link:hover {
-  background: var(--green-bg-light);
+  background: var(--green-light);
   color: var(--primary-green-dark);
+  transform: translateY(-1px);
 }
 
 .layout-nav-link:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(56, 142, 60, 0.3);
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.3);
 }
 
-/* Track Order Page Styles
----------------------------------------------- */
+/* ==========================================================================
+   Track Order Page Styles
+   ========================================================================== */
 .track-order-main {
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* Top align */
   justify-content: center;
+  padding-top: var(--spacing-3xl); /* Optional: add some top padding */
 }
 
 .track-order-container {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-2xl);
+  gap: var(--spacing-lg); /* Reduced gap to move form closer to header */
 }
 
 .track-order-header {
@@ -422,9 +470,9 @@ body {
 
 .track-order-header h1 {
   font-size: var(--text-4xl);
-  font-weight: 800;
+  font-weight: 700;
   color: var(--black);
-  text-shadow: var(--shadow-text);
+  text-shadow: var(--shadow-text-sm);
   margin-bottom: var(--spacing-xl);
 }
 
@@ -437,6 +485,7 @@ body {
 .track-order-form {
   max-width: 24rem;
   margin: 0 auto;
+  margin-top: var(--spacing-md); /* Added smaller margin-top to move form up */
 }
 
 .track-order-input {
@@ -449,16 +498,16 @@ body {
 }
 
 .track-order-input:hover {
-  border-color: #a3d39c;
+  border-color: var(--primary-green);
 }
 
 .track-order-input:focus {
-  border-color: #4caf50;
-  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2), 0 6px 15px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
 }
 
 .track-order-details-card {
-  max-width: 24rem;
+  max-width: 28rem;
   margin: 0 auto;
 }
 
@@ -480,7 +529,7 @@ body {
   justify-content: space-between;
   padding: var(--spacing-md);
   border-radius: var(--radius-sm);
-  border: 1px solid var(--green-bg-light);
+  border: 1px solid var(--border);
   transition: all 0.2s ease;
 }
 
@@ -510,8 +559,9 @@ body {
   color: var(--gray);
 }
 
-/* Order Details Page Styles
----------------------------------------------- */
+/* ==========================================================================
+   Order Details Page Styles
+   ========================================================================== */
 .order-details-card p {
   color: var(--gray-dark);
   margin-bottom: var(--spacing-sm);
@@ -528,7 +578,7 @@ body {
 .order-details-item {
   padding: var(--spacing-sm);
   border-radius: var(--radius-sm);
-  border: 1px solid var(--green-bg-light);
+  border: 1px solid var(--border);
   transition: all 0.2s ease;
 }
 
@@ -548,8 +598,9 @@ body {
   background: #e8e8e8;
 }
 
-/* Admin Dashboard Page Styles
----------------------------------------------- */
+/* ==========================================================================
+   Admin Dashboard Page Styles
+   ========================================================================== */
 .admin-dashboard-table-header {
   background: var(--green-bg-table);
   color: var(--green-text);
@@ -584,81 +635,88 @@ body {
 
 .admin-dashboard-status-select {
   border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: var(--spacing-xs);
-  color: var(--gray-dark);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm);
+  color: var(--gray-darker);
   font-size: var(--text-sm);
   transition: all 0.3s ease;
 }
 
 .admin-dashboard-status-select:focus {
   outline: none;
-  border-color: #4caf50;
-  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
 }
 
 .admin-dashboard-status-select:disabled {
   background: var(--gray-light);
+  cursor: not-allowed;
 }
 
 .admin-dashboard-no-orders {
   background: var(--gray-light);
-  color: var(--gray);
+  color: var(--gray-dark);
   padding: var(--spacing-lg);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
+  text-align: center;
 }
 
-/* Admin Order Table Styles
----------------------------------------------- */
+/* ==========================================================================
+   Admin Order Table Styles
+   ========================================================================== */
 .admin-order-table-error {
   margin-bottom: var(--spacing-lg);
 }
 
 .admin-order-table-status-select {
   border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: var(--spacing-xs);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm);
   transition: all 0.3s ease;
 }
 
 .admin-order-table-status-select:focus {
   outline: none;
-  border-color: var(--blue);
-  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
 }
 
 .admin-order-table-status-select:disabled {
   background: var(--gray-light);
+  cursor: not-allowed;
 }
 
 .admin-order-table-no-data {
-  padding: var(--spacing-sm) var(--spacing-lg);
+  padding: var(--spacing-md) var(--spacing-lg);
   text-align: center;
-  color: var(--gray);
+  color: var(--gray-dark);
 }
 
-/* Inventory Table Styles
----------------------------------------------- */
+/* ==========================================================================
+   Inventory Table Styles
+   ========================================================================== */
 .inventory-table-no-data {
-  padding: var(--spacing-sm) var(--spacing-lg);
+  padding: var(--spacing-md) var(--spacing-lg);
   text-align: center;
-  color: var(--gray);
+  color: var(--gray-dark);
 }
 
-/* Product Card Styles
----------------------------------------------- */
+/* ==========================================================================
+   Product Card Styles
+   ========================================================================== */
 .product-card {
   background: var(--white);
   border: 1px solid var(--border-green);
   border-radius: var(--radius-lg);
   padding: var(--spacing-xl);
   box-shadow: var(--shadow-md);
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
 }
 
 .product-card:hover {
   box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
 }
 
 .product-card-heading {
@@ -672,12 +730,14 @@ body {
 .product-card-stock {
   color: var(--gray-dark);
   margin-top: var(--spacing-sm);
+  font-size: var(--text-sm);
 }
 
 .product-card-quantity-control {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
+  margin-top: var(--spacing-sm);
 }
 
 .product-card-quantity-button {
@@ -690,16 +750,17 @@ body {
   font-weight: 600;
   border: none;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .product-card-quantity-button:hover:not(:disabled) {
   background: var(--primary-green-dark);
+  transform: scale(1.05);
 }
 
 .product-card-quantity-button:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(56, 142, 60, 0.3);
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.3);
 }
 
 .product-card-quantity-button:disabled {
@@ -715,12 +776,14 @@ body {
   text-align: center;
 }
 
-/* Product Catalog Styles
----------------------------------------------- */
+/* ==========================================================================
+   Product Catalog Styles
+   ========================================================================== */
 .product-catalog-container {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-2xl);
+
 }
 
 .product-catalog-grid {
@@ -733,7 +796,8 @@ body {
 .product-catalog-no-products {
   grid-column: 1 / -1;
   text-align: center;
-  color: var(--gray);
+  color: var(--gray-dark);
+  padding: var(--spacing-lg);
 }
 
 .product-catalog-total {
@@ -777,12 +841,24 @@ body {
   text-align: center;
 }
 
+
+
 .product-catalog-delivery-form {
   background: var(--white);
   border: 1px solid var(--border-green);
   border-radius: var(--radius-lg);
   padding: var(--spacing-xl);
   box-shadow: var(--shadow-md);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  width: 100%;
+  max-width: 36rem; /* matches .container--sm used for forms */
+  margin: auto;
+}
+
+
+.product-catalog-delivery-form:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
 }
 
 .product-catalog-delivery-form-content {
@@ -793,18 +869,21 @@ body {
 
 .product-catalog-textarea {
   resize: vertical;
+  min-height: 100px;
 }
 
 .product-catalog-button-wrapper {
   display: flex;
   justify-content: center;
+  margin-top: var(--spacing-xl);
 }
 
-/* Inventory Management Page Styles
----------------------------------------------- */
+/* ==========================================================================
+   Inventory Management Page Styles
+   ========================================================================== */
 .inventory-management-cancel-button {
   margin-left: var(--spacing-lg);
-  color: var(--gray);
+  color: var(--gray-dark);
   font-size: var(--text-sm);
   text-decoration: none;
   background: none;
@@ -828,61 +907,66 @@ body {
   background: var(--gray-light);
 }
 
+/* Updated: Add background colors to Edit button */
 .inventory-management-edit-button {
-  color: var(--blue);
+  color: var(--white);
+  background: var(--blue); /* Blue background for Edit */
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-sm);
   margin-right: var(--spacing-lg);
   text-decoration: none;
-  background: none;
   border: none;
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .inventory-management-edit-button:hover {
-  color: var(--blue-dark);
-  text-decoration: underline;
+  background: var(--blue-dark);
+  transform: translateY(-1px);
 }
 
 .inventory-management-edit-button:focus {
   outline: none;
-  color: var(--blue-dark);
-  text-decoration: underline;
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.3);
 }
 
+/* Updated: Add background colors to Delete button */
 .inventory-management-delete-button {
-  color: var(--red);
+  color: var(--white);
+  background: var(--red); /* Red background for Delete */
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-sm);
   text-decoration: none;
-  background: none;
   border: none;
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .inventory-management-delete-button:hover {
-  color: var(--red-dark);
-  text-decoration: underline;
+  background: var(--red-dark);
+  transform: translateY(-1px);
 }
 
 .inventory-management-delete-button:focus {
   outline: none;
-  color: var(--red-dark);
-  text-decoration: underline;
+  box-shadow: 0 0 0 3px rgba(200, 40, 40, 0.3);
 }
 
 .inventory-management-no-products {
-  color: var(--gray);
+  color: var(--gray-dark);
   font-size: var(--text-sm);
   text-align: center;
   padding: var(--spacing-lg);
 }
 
-/* Responsive Adjustments
----------------------------------------------- */
+/* ==========================================================================
+   Responsive Adjustments
+   ========================================================================== */
 @media (max-width: 640px) {
   .container--padded,
   .layout-main,
   .home-main {
-    padding: var(--spacing-2xl) var(--spacing-lg);
+    padding: var(--spacing-2xl) var(--spacing-md);
   }
 
   .heading--lg,
@@ -897,11 +981,31 @@ body {
   .card,
   .product-catalog-delivery-form,
   .product-catalog-order-summary {
-    padding: var(--spacing-xl);
+    padding: var(--spacing-lg);
+  }
+
+  .product-catalog-delivery-form {
+    max-width: 20rem; /* Smaller width on small screens */
   }
 
   .table-cell {
     padding: var(--spacing-sm);
+    font-size: var(--text-sm);
+  }
+
+  .layout-nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .layout-nav-links {
+    margin-top: var(--spacing-lg);
+    width: 100%;
+    justify-content: center;
+  }
+
+  .admin-dashboard-items-list {
+    width: 100%;
   }
 }
 
@@ -912,6 +1016,10 @@ body {
 
   .product-catalog-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product-catalog-delivery-form {
+    max-width: 24rem; /* Adjusted to match approximate product card width on medium screens */
   }
 }
 
@@ -928,4 +1036,9 @@ body {
   .product-catalog-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .product-catalog-delivery-form {
+    max-width: 32rem; /* Slightly wider on large screens to match typical card width */
+  }
 }
+

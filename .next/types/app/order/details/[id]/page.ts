@@ -1,4 +1,4 @@
-// File: /Users/mmetkar/practice/bulk-order-platform/app/order/details/[id]/page.js
+// File: /Users/mmetkar/practice/store/app/order/details/[id]/page.js
 import * as entry from '../../../../../../app/order/details/[id]/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

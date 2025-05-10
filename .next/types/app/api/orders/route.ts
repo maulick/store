@@ -1,4 +1,4 @@
-// File: /Users/mmetkar/practice/bulk-order-platform/app/api/orders/route.js
+// File: /Users/mmetkar/practice/store/app/api/orders/route.js
 import * as entry from '../../../../../app/api/orders/route.js'
 import type { NextRequest } from 'next/server.js'
 

@@ -17,6 +17,22 @@
       "static/chunks/main-app.js",
       "static/chunks/app/api/orders/route.js"
     ],
+    "/order/details/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/order/details/[id]/page.js"
+    ],
+    "/order/track/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/order/track/page.css",
+      "static/chunks/app/order/track/page.js"
+    ],
+    "/api/orders/track/route": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/api/orders/track/route.js"
+    ],
     "/admin/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -32,22 +48,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/api/status/[id]/route.js"
-    ],
-    "/order/track/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/order/track/page.css",
-      "static/chunks/app/order/track/page.js"
-    ],
-    "/api/orders/track/route": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/api/orders/track/route.js"
-    ],
-    "/order/details/[id]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/order/details/[id]/page.js"
     ]
   }
 }

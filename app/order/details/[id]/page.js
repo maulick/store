@@ -1,7 +1,7 @@
-import { db } from '../../../../lib/db';
-import { orders } from '../../../../lib/schema';
-import { eq } from 'drizzle-orm';
-import '../../../globals.css';
+import { db } from "@/lib/db";
+import { orders } from "@/lib/schema";
+import { eq } from "drizzle-orm";
+import "../../../globals.css";
 
 export default async function OrderDetails({ params }) {
   const { id } = params;
@@ -14,9 +14,9 @@ export default async function OrderDetails({ params }) {
       .where(eq(orders.id, parseInt(id)))
       .execute();
 
-    console.log('Fetched order details:', orderDetails);
+    console.log("Fetched order details:", orderDetails);
   } catch (error) {
-    console.error('Error fetching order details:', error);
+    console.error("Error fetching order details:", error);
   }
 
   if (!orderDetails || orderDetails.length === 0) {
@@ -37,7 +37,6 @@ export default async function OrderDetails({ params }) {
     .where(eq(orders.submissionId, order.submissionId))
     .execute();
 
-  // Convert totalPrice to a number if it's a string
   const totalPrice = parseFloat(order.totalPrice);
 
   return (
@@ -59,10 +58,10 @@ export default async function OrderDetails({ params }) {
         </p>
         <p>
           <span className="order-details-label">Total Price:</span> $
-          {isNaN(totalPrice) ? '0.00' : totalPrice.toFixed(2)}
+          {isNaN(totalPrice) ? "0.00" : totalPrice.toFixed(2)}
         </p>
         <p>
-          <span className="order-details-label">Status:</span>{' '}
+          <span className="order-details-label">Status:</span>{" "}
           <span className={`order-details-status status status-${order.status.toLowerCase()}`}>
             {order.status}
           </span>
@@ -73,7 +72,9 @@ export default async function OrderDetails({ params }) {
           {relatedOrders.map((item, index) => (
             <li
               key={index}
-              className={`order-details-item order-details-item-${index % 2 === 0 ? 'even' : 'odd'}`}
+              className={`order-details-item order-details-item-${
+                index % 2 === 0 ? "even" : "odd"
+              }`}
             >
               {item.itemName} - {item.quantity} unit(s)
             </li>

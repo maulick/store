@@ -1,20 +1,20 @@
-import { db } from '../../../lib/db.js';
-import { products } from '../../../lib/schema.js';
-import InventoryTable from '../../../components/InventoryTable';
-import '../../globals.css';
+import { db } from "@/lib/db";
+import { products } from "@/lib/schema";
+import InventoryTable from "@/components/InventoryTable";
+import "../../globals.css";
 
 export default async function Inventory() {
   let productList = [];
   try {
     productList = await db.select().from(products).execute();
-    console.log('Fetched products:', productList);
+    console.log("Fetched products:", productList);
 
     productList = productList.map((e) => ({
       ...e,
       price: parseFloat(e.price),
     }));
   } catch (error) {
-    console.error('Error fetching products during build:', error);
+    console.error("Error fetching products during build:", error);
   }
 
   return (

@@ -1,4 +1,4 @@
-// File: /Users/mmetkar/practice/bulk-order-platform/app/layout.js
+// File: /Users/mmetkar/practice/store/app/layout.js
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

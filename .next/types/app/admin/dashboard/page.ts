@@ -1,4 +1,4 @@
-// File: /Users/mmetkar/practice/bulk-order-platform/app/admin/dashboard/page.js
+// File: /Users/mmetkar/practice/store/app/admin/dashboard/page.js
 import * as entry from '../../../../../app/admin/dashboard/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

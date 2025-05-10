@@ -1,12 +1,12 @@
-import { db } from '../lib/db.js';
-import { products } from '../lib/schema.js';
-import ProductCatalog from '../components/ProductCatalog';
-import './globals.css';
-export const dynamic = 'force-dynamic';
+import { db } from "@/lib/db";
+import { products } from "@/lib/schema";
+import ProductCatalog from "@/components/ProductCatalog";
+import "./globals.css";
+export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const productList = await db.select().from(products).execute();
-  console.log('Fetched products:', productList);
+  console.log("Fetched products:", productList);
 
   if (!productList || productList.length === 0) {
     return (
@@ -22,13 +22,4 @@ export default async function Home() {
       <ProductCatalog initialProducts={productList} />
     </main>
   );
-}
-
-let productList;
-try {
-  productList = await db.select().from(products).execute();
-  console.log('Fetched products:', productList);
-} catch (error) {
-  console.error('Error fetching products:', error);
-  productList = [];
 }
